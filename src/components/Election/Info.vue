@@ -13,7 +13,7 @@
             <div class="space-y-1 text-right text-blue-500">
               <div class="">
                 <span class="text-base font-bold">Biden</span>
-                <p>7 Electoral Votes</p>
+                <p class="text-[11px] font-bold">PROJECTED WINNER</p>
               </div>
               <a-button size="small" shape="round">
                 <template #icon> + </template>
@@ -31,13 +31,19 @@
           </div>
           <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
             <dl class="sm:divide-y sm:divide-gray-200 border-b border-gray-200">
-              <div class="py-1 sm:grid sm:grid-cols-4 sm:gap-4">
-                <dt class="text-gray-500 sm:col-span-2">Biden</dt>
+              <div class="py-1 sm:grid sm:grid-cols-4 sm:gap-4 font-medium">
+                <dt class="text-gray-800 sm:col-span-2 flex items-center space-x-2">
+                  <span class="h-2 w-2 rounded-full flex flex-none bg-blue-500"></span>
+                  <span>Biden</span>
+                </dt>
                 <dd class="dark:text-white sm:mt-0 sm:col-span-1 text-right">56.5%</dd>
                 <dd class="dark:text-white sm:mt-0 sm:col-span-1 text-right">1,340,383</dd>
               </div>
-              <div class="py-1 sm:grid sm:grid-cols-4 sm:gap-4">
-                <dt class="text-gray-500 sm:col-span-2">Candidate</dt>
+              <div class="py-1 sm:grid sm:grid-cols-4 sm:gap-4 font-medium">
+                <dt class="text-gray-800 sm:col-span-2 flex items-center space-x-2">
+                  <span class="h-2 w-2 rounded-full flex flex-none bg-red-500"></span>
+                  <span>Candidate</span>
+                </dt>
                 <dd class="dark:text-white sm:mt-0 sm:col-span-1 text-right">56.5%</dd>
                 <dd class="dark:text-white sm:mt-0 sm:col-span-1 text-right">1,340,383</dd>
               </div>
