@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mongolian Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([46.8625, 103.8467], 5);
+
+        // Add a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(map);
+
+        // Load province GeoJSON
+        d3.json('https://cdn.amcharts.com/lib/5/geodata/json/mongoliaLow.json').then(function(provinceData) {
+            var provinceLayer = L.geoJSON(provinceData, {
+                onEachFeature: onEachProvince
+            }).addTo(map);
+
+            function onEachProvince(feature, layer) {
+                layer.on('click', function() {
+                    map.removeLayer(provinceLayer);
+                    loadSoums(feature.properties.name);
+                });
+            }
+        });
+
+        // Load soums GeoJSON based on province_id
+        function loadSoums(name) {
+            d3.json('https://electionanalytics.live/election/map/soums/' + name + '.json').then(function(soumData) {
+                var soumLayer = L.geoJSON(soumData, {
+                    onEachFeature: onEachSoum
+                }).addTo(map);
+
+                // Add a button to go back to province view
+                var backButton = L.control({ position: 'topright' });
+                backButton.onAdd = function() {
+                    var div = L.DomUtil.create('div', 'leaflet-bar');
+                    div.innerHTML = '<a href="#" title="Back to Provinces">Back</a>';
+                    div.onclick = function() {
+                        map.removeLayer(soumLayer);
+                        map.removeControl(backButton);
+                        map.addLayer(provinceLayer);
+                    };
+                    return div;
+                };
+                backButton.addTo(map);
+            });
+        }
+
+        function onEachSoum(feature, layer) {
+            // Add any soum-specific interactions here
+        }
+    </script>
+</body>
+</html>

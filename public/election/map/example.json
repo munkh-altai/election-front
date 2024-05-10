@@ -1,0 +1,506 @@
+{
+  "ChadamjiinGerchilgeeByAiamag": [
+    {
+      "aimagname": "",
+      "too": 8,
+      "aimag_id": 11
+    },
+    {
+      "aimagname": "",
+      "too": 393,
+      "aimag_id": 19
+    },
+    {
+      "aimagname": "",
+      "too": 186,
+      "aimag_id": 21
+    },
+    {
+      "aimagname": "",
+      "too": 707,
+      "aimag_id": 14
+    },
+    {
+      "aimagname": "",
+      "too": 285,
+      "aimag_id": 3
+    },
+    {
+      "aimagname": "",
+      "too": 271,
+      "aimag_id": 17
+    },
+    {
+      "aimagname": "",
+      "too": 199,
+      "aimag_id": 20
+    },
+    {
+      "aimagname": "",
+      "too": 22763,
+      "aimag_id": 22
+    },
+    {
+      "aimagname": "",
+      "too": 125,
+      "aimag_id": 10
+    },
+    {
+      "aimagname": "",
+      "too": 132,
+      "aimag_id": 9
+    },
+    {
+      "aimagname": "",
+      "too": 513,
+      "aimag_id": 13
+    },
+    {
+      "aimagname": "",
+      "too": 196,
+      "aimag_id": 7
+    },
+    {
+      "aimagname": "",
+      "too": 194,
+      "aimag_id": 1
+    },
+    {
+      "aimagname": "",
+      "too": 110,
+      "aimag_id": 5
+    },
+    {
+      "aimagname": "",
+      "too": 75,
+      "aimag_id": 18
+    },
+    {
+      "aimagname": "",
+      "too": 226,
+      "aimag_id": 2
+    },
+    {
+      "aimagname": "",
+      "too": 300,
+      "aimag_id": 16
+    },
+    {
+      "aimagname": "",
+      "too": 110,
+      "aimag_id": 12
+    }
+  ],
+  "SchoolByAimag": [
+    {
+      "aimagname": "",
+      "too": 5,
+      "aimag_id": 11
+    },
+    {
+      "aimagname": "",
+      "too": 7,
+      "aimag_id": 8
+    },
+    {
+      "aimagname": "",
+      "too": 2,
+      "aimag_id": 0
+    },
+    {
+      "aimagname": "",
+      "too": 12,
+      "aimag_id": 19
+    },
+    {
+      "aimagname": "",
+      "too": 4,
+      "aimag_id": 4
+    },
+    {
+      "aimagname": "",
+      "too": 15,
+      "aimag_id": 21
+    },
+    {
+      "aimagname": "",
+      "too": 11,
+      "aimag_id": 14
+    },
+    {
+      "aimagname": "",
+      "too": 10,
+      "aimag_id": 3
+    },
+    {
+      "aimagname": "",
+      "too": 8,
+      "aimag_id": 17
+    },
+    {
+      "aimagname": "",
+      "too": 6,
+      "aimag_id": 20
+    },
+    {
+      "aimagname": "",
+      "too": 953,
+      "aimag_id": 22
+    },
+    {
+      "aimagname": "",
+      "too": 9,
+      "aimag_id": 9
+    },
+    {
+      "aimagname": "",
+      "too": 39,
+      "aimag_id": 13
+    },
+    {
+      "aimagname": "",
+      "too": 13,
+      "aimag_id": 10
+    },
+    {
+      "aimagname": "",
+      "too": 11,
+      "aimag_id": 7
+    },
+    {
+      "aimagname": "",
+      "too": 13,
+      "aimag_id": 1
+    },
+    {
+      "aimagname": "",
+      "too": 6,
+      "aimag_id": 5
+    },
+    {
+      "aimagname": "",
+      "too": 10,
+      "aimag_id": 18
+    },
+    {
+      "aimagname": "",
+      "too": 5,
+      "aimag_id": 2
+    },
+    {
+      "aimagname": "",
+      "too": 6,
+      "aimag_id": 15
+    },
+    {
+      "aimagname": "",
+      "too": 12,
+      "aimag_id": 16
+    },
+    {
+      "aimagname": "",
+      "too": 6,
+      "aimag_id": 6
+    },
+    {
+      "aimagname": "",
+      "too": 12,
+      "aimag_id": 12
+    }
+  ],
+  "StudentByAiamag": [
+    {
+      "aimagname": "",
+      "too": 8,
+      "aimag_id": 11
+    },
+    {
+      "aimagname": "",
+      "too": 393,
+      "aimag_id": 19
+    },
+    {
+      "aimagname": "",
+      "too": 186,
+      "aimag_id": 21
+    },
+    {
+      "aimagname": "",
+      "too": 707,
+      "aimag_id": 14
+    },
+    {
+      "aimagname": "",
+      "too": 285,
+      "aimag_id": 3
+    },
+    {
+      "aimagname": "",
+      "too": 271,
+      "aimag_id": 17
+    },
+    {
+      "aimagname": "",
+      "too": 199,
+      "aimag_id": 20
+    },
+    {
+      "aimagname": "",
+      "too": 22763,
+      "aimag_id": 22
+    },
+    {
+      "aimagname": "",
+      "too": 125,
+      "aimag_id": 10
+    },
+    {
+      "aimagname": "",
+      "too": 132,
+      "aimag_id": 9
+    },
+    {
+      "aimagname": "",
+      "too": 513,
+      "aimag_id": 13
+    },
+    {
+      "aimagname": "",
+      "too": 196,
+      "aimag_id": 7
+    },
+    {
+      "aimagname": "",
+      "too": 194,
+      "aimag_id": 1
+    },
+    {
+      "aimagname": "",
+      "too": 110,
+      "aimag_id": 5
+    },
+    {
+      "aimagname": "",
+      "too": 75,
+      "aimag_id": 18
+    },
+    {
+      "aimagname": "",
+      "too": 226,
+      "aimag_id": 2
+    },
+    {
+      "aimagname": "",
+      "too": 300,
+      "aimag_id": 16
+    },
+    {
+      "aimagname": "",
+      "too": 110,
+      "aimag_id": 12
+    }
+  ],
+  "aimag": [
+    {
+      "aimagcode": "11",
+      "aimagname": "Улаанбаатар",
+      "aimagname_mgl": "ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ",
+      "aimagzipcode": "11",
+      "id": 22,
+      "location": "{\"lat\":47.920169446861394,\"lng\":106.91727541639398}",
+      "zoneid": 5
+    },
+    {
+      "aimagcode": "65",
+      "aimagname": "Архангай",
+      "aimagname_mgl": "ᠠᠷᠤᠬᠠᠩᠭ᠋ᠠᠢ ᠠᠢᠢᠮᠠᠭ ",
+      "aimagzipcode": "65",
+      "id": 1,
+      "location": "{\"lat\":47.4732161762431,\"lng\":101.45127676679681}",
+      "zoneid": 2
+    },
+    {
+      "aimagcode": "83",
+      "aimagname": "Баян Өлгий",
+      "aimagname_mgl": "ᠪᠠᠶᠠᠨ-ᠥᠯᠦᠭᠡᠢ ᠠᠢᠢᠮᠠᠭ ",
+      "aimagzipcode": "83",
+      "id": 2,
+      "location": "{\"lat\":48.96785258955994,\"lng\":89.95717428876947}",
+      "zoneid": 1
+    },
+    {
+      "aimagcode": "63",
+      "aimagname": "Булган",
+      "aimagname_mgl": "ᠪᠤᠯᠠᠭᠠᠨ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "63",
+      "id": 4,
+      "location": "{\"lat\":48.81836769397977,\"lng\":103.5328426237304}",
+      "zoneid": 2
+    },
+    {
+      "aimagcode": "82",
+      "aimagname": "Говь Алтай",
+      "aimagname_mgl": "ᠭᠣᠪᠢ-ᠠᠯᠲᠠᠢ ᠠᠢᠢᠮᠠᠭ",
+      "aimagzipcode": "82",
+      "id": 5,
+      "location": "{\"lat\":46.37189716529535,\"lng\":96.25096701337884}",
+      "zoneid": 1
+    },
+    {
+      "aimagcode": "64",
+      "aimagname": "Баянхонгор",
+      "aimagname_mgl": "ᠪᠠᠶᠠᠩᠬᠣᠩᠭ᠋ᠣᠷ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "64",
+      "id": 3,
+      "location": "{\"lat\":46.173859681714895,\"lng\":100.70180319501947}",
+      "zoneid": 2
+    },
+    {
+      "aimagcode": "44",
+      "aimagname": "Дорноговь",
+      "aimagname_mgl": "ᠲᠣᠷᠣᠨᠠᠭᠣᠪᠢ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "44",
+      "id": 6,
+      "location": "{\"lat\":44.89914525695079,\"lng\":110.12910269453118}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "21",
+      "aimagname": "Дорнод",
+      "aimagname_mgl": "ᠳᠣᠷᠤᠨᠠᠳᠤ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "21",
+      "id": 7,
+      "location": "{\"lat\":48.07874053465907,\"lng\":114.54354666425775}",
+      "zoneid": 4
+    },
+    {
+      "aimagcode": "22",
+      "aimagname": "Сүхбаатар",
+      "aimagname_mgl": "ᠰᠦᠬᠡᠪᠠᠭᠠᠲᠤᠷ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "22",
+      "id": 8,
+      "location": "{\"lat\":46.68121600569548,\"lng\":113.27943228437493}",
+      "zoneid": 4
+    },
+    {
+      "aimagcode": "23",
+      "aimagname": "Хэнтий",
+      "aimagname_mgl": "ᠬᠡᠨᠲᠡᠢ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "23",
+      "id": 9,
+      "location": "{\"lat\":47.31796888645783,\"lng\":110.64580343916009}",
+      "zoneid": 4
+    },
+    {
+      "aimagcode": "41",
+      "aimagname": "Төв",
+      "aimagname_mgl": "ᠲᠥᠪ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "41",
+      "id": 10,
+      "location": "{\"lat\":47.7057496071546,\"lng\":106.94684408857415}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "42",
+      "aimagname": "Говьсүмбэр",
+      "aimagname_mgl": "ᠭᠣᠪᠢ ᠰᠦᠮᠪᠦᠷ",
+      "aimagzipcode": "42",
+      "id": 11,
+      "location": "{\"lat\":46.356142107515446,\"lng\":108.37403677656243}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "43",
+      "aimagname": "Сэлэнгэ",
+      "aimagname_mgl": "ᠰᠡᠯᠡᠩᠭᠡ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "43",
+      "id": 12,
+      "location": "{\"lat\":50.22752599183184,\"lng\":106.21625326826165}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "45",
+      "aimagname": "Дархан Уул",
+      "aimagname_mgl": " ᠳᠠᠷᠬᠠᠨ-ᠠᠭᠤᠯᠠ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "45",
+      "id": 13,
+      "location": "{\"lat\":49.46564391481613,\"lng\":105.96682928754876}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "46",
+      "aimagname": "Өмнөговь",
+      "aimagname_mgl": "ᠡᠮᠦᠨᠡᠭᠣᠪᠢ ᠠᠢᠮᠠᠭ",
+      "aimagzipcode": "46",
+      "id": 14,
+      "location": "{\"lat\":43.57227859353757,\"lng\":104.4117488737304}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "48",
+      "aimagname": "Дундговь",
+      "aimagname_mgl": "ᠳᠤᠮᠳᠠᠭᠣᠪᠢ ᠠᠢᠮᠠᠭ",
+      "aimagzipcode": "48",
+      "id": 15,
+      "location": "{\"lat\":45.76581877689952,\"lng\":106.26483343793939}",
+      "zoneid": 3
+    },
+    {
+      "aimagcode": "61",
+      "aimagname": "Орхон",
+      "aimagname_mgl": "ᠣᠷᠡᠡᠥᠡ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "61",
+      "id": 16,
+      "location": "{\"lat\":49.06849807304649,\"lng\":104.10747908308099}",
+      "zoneid": 2
+    },
+    {
+      "aimagcode": "62",
+      "aimagname": "Өвөрхангай",
+      "aimagname_mgl": "ᠥᠪᠦᠷᠬᠠᠩᠭ᠋ᠠᠢ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "62",
+      "id": 17,
+      "location": "{\"lat\":46.25356412506879,\"lng\":102.77238272382806}",
+      "zoneid": 2
+    },
+    {
+      "aimagcode": "67",
+      "aimagname": "Хөвсгөл",
+      "aimagname_mgl": "ᠬᠥᠪᠰᠥᠭᠥᠯ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "67",
+      "id": 18,
+      "location": "{\"lat\":49.643820291284264,\"lng\":100.18072508527825}",
+      "zoneid": 2
+    },
+    {
+      "aimagcode": "84",
+      "aimagname": "Ховд",
+      "aimagname_mgl": "ᠬᠣᠪᠳᠣ ᠠᠢᠮᠠᠭ",
+      "aimagzipcode": "84",
+      "id": 19,
+      "location": "{\"lat\":48.000004088784735,\"lng\":91.6412582273681}",
+      "zoneid": 1
+    },
+    {
+      "aimagcode": "85",
+      "aimagname": "Увс",
+      "aimagname_mgl": "ᠤᠪᠰᠤ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "85",
+      "id": 20,
+      "location": "{\"lat\":49.98498134253853,\"lng\":92.06036947919915}",
+      "zoneid": 1
+    },
+    {
+      "aimagcode": "81",
+      "aimagname": "Завхан",
+      "aimagname_mgl": "ᠵᠠᠪᠬᠠᠨ ᠠᠶᠢᠮᠠᠭ",
+      "aimagzipcode": "81",
+      "id": 21,
+      "location": "{\"lat\":47.72752011024194,\"lng\":96.85710333540032}",
+      "zoneid": 1
+    }
+  ],
+  "chadamjiinGerchilgee": 24281,
+  "schools": 1158,
+  "students": 24281
+}
