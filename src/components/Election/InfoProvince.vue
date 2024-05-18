@@ -7,7 +7,7 @@
         <div>
           <div class="pt-4 pb-2 flex justify-between space-x-10 ">
             <div class="">
-              <span class="text-base font-semibold text-gray-800">{{ title }}</span>
+              <span class="text-base font-semibold text-gray-800">1-р тойрог</span>
               <p>Сонгогчийн нийт тоо: 3,000,000</p>
             </div>
             <div class="space-y-1 text-right text-red-500">
@@ -77,9 +77,7 @@
   </div>
 </template>
 <script setup>
-const props = defineProps({
-  title: String
-});
+
 </script>
 
 <style scoped lang="less">

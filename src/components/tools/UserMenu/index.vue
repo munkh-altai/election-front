@@ -1,8 +1,5 @@
 <template>
-<!--  <SearchBar class="action" v-if="!isMobile"/>-->
-<!--  <notice-icon class="action"/>-->
-<!--  <notif-widget :userID="userID" class="action" :isMobile="isMobile"/>-->
-  <DarkLightMode class="action" v-if="!isMobile"/>
+
   <a-dropdown>
         <span class="action ant-dropdown-link user-dropdown-menu">
           <div class="avatar">
@@ -106,15 +103,7 @@
     </template>
   </a-dropdown>
 <!--  <SelectLang :class="theme" class="action"/>-->
-  <span class="action" v-if="!isMobile">
-         <span class="link link-icon " @click="showSystemSetting">
-            <span class="svg-icon ">
-                      <inline-svg
-                        src="/assets/icons/duotune/general/gen019.svg"
-                      />
-            </span>
-          </span>
-  </span>
+
   <div class="fixed bottom-0 right-2" v-if="isMobile">
     <a-button type="primary" shape="circle" @click="showSystemSetting" size="large">
       <template #icon>

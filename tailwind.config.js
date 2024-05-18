@@ -25,12 +25,17 @@ module.exports = {
         // 'logo-dark': "url('/assets/images/light.svg')",
         // 'logo-light': "url('/assets/images/dark.svg')",
       },
+      fontSize: {
+        xxs: '0.6rem', // or any small size you prefer
+        xxs2: '0.7rem', // or any small size you prefer
+      }
     },
   },
   darkMode: 'class',
   variants: {
     extend: {
       backgroundImage: ['dark'],
+
     },
   },
   plugins: [],
