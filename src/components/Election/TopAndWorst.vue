@@ -21,6 +21,7 @@ import { Chart } from 'highcharts-vue';
 const props = defineProps({
   selectionType: String,
   selectionFeature: Object,
+  selectionFeatures: Array,
 });
 const provincesData = ref([
   { name: 'Улаанбаатар', supportPercentage: 78 },

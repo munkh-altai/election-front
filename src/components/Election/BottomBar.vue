@@ -14,7 +14,9 @@
         </a-tab-pane>
         <a-tab-pane key="3" tab="Шилдэг, Хамгийн муу" class="tab-content">
           <TopAndWorst
-            :selectionType="selectionType" :selectionFeature="selectionFeature"
+            :selectionType="selectionType"
+            :selectionFeature="selectionFeature"
+            :selectionFeatures="selectionFeatures"
           ></TopAndWorst>
         </a-tab-pane>
       </a-tabs>
@@ -37,6 +39,7 @@ import TopAndWorst from './TopAndWorst.vue';
 const props = defineProps({
   selectionType: String,
   selectionFeature: Object,
+  selectionFeatures: Array,
 });
 
 const activeKey = ref('1');

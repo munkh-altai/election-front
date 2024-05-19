@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-page w-full px-2 overflow-y-auto">
 
-    <div v-if="!onlyOronNutag">
+    <div v-if="!onlyOronNutag || selectionType === 'section-ub'">
 
 
       <a-tabs default-active-key="1" class="h-full " size="small" >
@@ -31,7 +31,7 @@
         </a-tab-pane>
       </a-tabs>
     </div>
-    <div v-if="onlyOronNutag">
+    <div v-if="onlyOronNutag && selectionType !== 'section-ub'">
       <a-tabs default-active-key="1" class="h-full " size="small" >
         <a-tab-pane key="1" tab="Суурь өнгө">
 
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, watch } from 'vue';
 import Highcharts from 'highcharts'
 import { Chart } from 'highcharts-vue';
 
@@ -148,6 +148,93 @@ function generateRandomData(numZones) {
   }
   return data;
 }
+function generateRandomDataWithFeatures(selectionType, features, selectedFeature) {
+  const data = [];
+  let duureg = undefined
+  for (let i = 0; i < features.length; i++) {
+    const cnt_base_red = Math.floor(Math.random() * 20) + 30; // Random number between 50 and 150
+    const cnt_base_blue = Math.floor(Math.random() * (cnt_base_red - 15)) + 10; // Random number between 10 and cnt_base_red - 10
+    const cnt_base_busad = Math.floor(Math.random() * (cnt_base_blue - 20)) + 10; // Random number between 10 and cnt_base_blue - 10
+    const cnt_base_saaral = Math.floor(Math.random() * (cnt_base_busad - 15)) + 5; // Random number between 10 and cnt_base_busad - 10
+
+    const manMembers = Math.floor(Math.random() * 8); // Random number between 0 and 20
+    const cnt_sc_red = Math.floor(Math.random() * 15); // Random number between 0 and 20
+    const cnt_sc_blue = Math.floor(Math.random() * 8); // Random number between 0 and 20
+    const cnt_sc_busad = Math.floor(Math.random() * 5); // Random number between 0 and 20
+
+    let label = ""
+
+
+    if(selectionType === "section"){
+      label = `${features[i].properties.name_MN} аймаг`
+    }else if(selectionType === "province"){
+      label = `${features[i].properties.NAME} сум`
+    } else if(selectionType === "section-ub"){
+      if(selectedFeature.section === "10" || selectedFeature.section === "13"){
+
+
+        if(features[i].properties.name_desc === "Сүхбаатар"){
+          duureg = "СБ"
+        }else if(features[i].properties.name_desc === "Чингэлтэй"){
+          duureg = "ЧИ"
+        }else if(features[i].properties.name_desc === "Багануур"){
+          duureg = "Багануур"
+        }else if(features[i].properties.name_desc === "Багахангай"){
+          duureg = "Багахангай"
+        }else if(features[i].properties.name_desc === "Налайх"){
+          duureg = "Налайх"
+        } else {
+          duureg = undefined
+        }
+
+        label = `${duureg ? duureg+ ' ': ''}${features[i].properties.name}`
+      } else {
+        label = `${features[i].properties.name}`
+      }
+
+    }
+    data.push({
+      id: `${i}`,
+      zone: label,
+      duureg: duureg,
+      cnt_base_red,
+      cnt_base_blue,
+      cnt_base_busad,
+      cnt_base_saaral,
+      manMembers,
+      cnt_sc_red,
+      cnt_sc_blue,
+      cnt_sc_busad
+    });
+  }
+
+  if(selectionType === "section-ub"){
+    if(duureg === undefined){
+      data.sort((a, b) => {
+        const numA = parseInt(a.zone.match(/\d+/)[0], 10);
+        const numB = parseInt(b.zone.match(/\d+/)[0], 10);
+        return numA - numB;
+      });
+    } else {
+      // Sort the data first by duureg, then by the numeric part of the zone
+      data.sort((a, b) => {
+        if (a.duureg === b.duureg) {
+          const numA = parseInt(a.zone.match(/\d+/)[0], 10);
+          const numB = parseInt(b.zone.match(/\d+/)[0], 10);
+          return numA - numB;
+        } else if (a.duureg && b.duureg) {
+          return a.duureg.localeCompare(b.duureg);
+        } else if (a.duureg) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    }
+  }
+
+  return data;
+}
 
 export default {
   name: 'SideBar',
@@ -155,7 +242,10 @@ export default {
     highcharts: Chart
   },
   props:{
-    onlyOronNutag:Boolean
+    onlyOronNutag:Boolean,
+    selectionType:String,
+    selectionFeatures:Array,
+    selectionFeature:Object,
   },
   setup(props) {
     const numberFormatter = new Intl.NumberFormat('en-US');
@@ -306,9 +396,17 @@ export default {
     };
 
     const numberOfSection = props.onlyOronNutag ? 7 : 13;
-    console.log(numberOfSection)
 
-    const data =generateRandomData(numberOfSection);
+    let data = [];
+
+    if(props.selectionType === "country"){
+      data = generateRandomData(numberOfSection);
+    } else {
+
+      data = generateRandomDataWithFeatures(props.selectionType, props.selectionFeatures, props.selectionFeature);
+    }
+
+
 
     const tableData = ref(data.map(item => ({
       key: item.id,
@@ -590,20 +688,48 @@ export default {
     // This function can be used to refresh data and chart
     const refreshChartData = () => {
       const numberOfSection = props.onlyOronNutag ? 7 : 13;
-      const data = generateRandomData(numberOfSection);
-      tableData.value = data.map(item => ({ key: item.id, ...item }));
+      let data = [];
 
-      chartOptionsBase.value.series = getData(["base", "manMembers", "social"], dataTypesBase, data);
-      chartOptionsBase.value.chart.height = (props.onlyOronNutag ? 50 : 30 ) * numberOfSection;
+      if(props.selectionType === "country"){
+        data = generateRandomData(numberOfSection);
 
-      chartOptionsSocial.value.series = getData(["base", "manMembers", "social"], dataTypesSocial, data);
-      chartOptionsSocial.value.chart.height = (props.onlyOronNutag ? 50 : 30 ) * numberOfSection;
+        tableData.value = data.map(item => ({ key: item.id, ...item }));
+
+        chartOptionsBase.value.series = getData(["base", "manMembers", "social"], dataTypesBase, data);
+        chartOptionsBase.value.chart.height = (props.onlyOronNutag ? 50 : 30 ) * numberOfSection;
+        chartOptionsBase.value.xAxis.categories = data.map(r => r.zone)
+
+        chartOptionsSocial.value.series = getData(["base", "manMembers", "social"], dataTypesSocial, data);
+        chartOptionsSocial.value.chart.height = (props.onlyOronNutag ? 50 : 30 ) * numberOfSection;
+
+        chartOptionsSocial.value.xAxis.categories = data.map(r => r.zone)
+      } else {
+        if(props.selectionFeatures && props.selectionFeatures.length > 0){
+          data = generateRandomDataWithFeatures(props.selectionType, props.selectionFeatures,  props.selectionFeature);
+
+
+          tableData.value = data.map(item => ({ key: item.id, ...item }));
+
+          chartOptionsBase.value.series = getData(["base", "manMembers", "social"], dataTypesBase, data);
+          chartOptionsBase.value.chart.height = (props.selectionFeatures.length >= 7 ? 30 : 50) * props.selectionFeatures.length;
+          chartOptionsBase.value.xAxis.categories = data.map(r => r.zone)
+
+          chartOptionsSocial.value.series = getData(["base", "manMembers", "social"], dataTypesSocial, data);
+          chartOptionsSocial.value.chart.height = (props.selectionFeatures.length >= 7 ? 30 : 50 ) * props.selectionFeatures.length;
+
+          chartOptionsSocial.value.xAxis.categories = data.map(r => r.zone)
+        }
+
+      }
+
     };
 
     // Watch the `onlyOronNutag` prop for changes
     watchEffect(() => {
       refreshChartData();
     });
+
+
 
     return {
       isModalVisible, handleOk, handleCancel, columns, tableData, chartOptionsBase, chartOptionsSocial, chartOptionsAll

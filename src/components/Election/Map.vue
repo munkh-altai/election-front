@@ -1,7 +1,7 @@
 <template>
   <div class="map row-span-5 relative">
     <div class="absolute top-0.5 right-0.5 z-20">
-      <a-switch v-model:checked="onlyOronNutag" />
+      <a-switch v-model:checked="onlyOronNutag" @change="onlyOronNutagChanged" />
 
       <span class="text-xxs"> Зөвхөн орон нутгийн мэдээлэл</span>
     </div>
@@ -173,11 +173,14 @@ backButtonProvince.onAdd = function () {
 };
 
 
-const emit = defineEmits(['objectSelected']);
+const emit = defineEmits(['objectSelected', 'onlyOronNutagChanged']);
+
+function onlyOronNutagChanged(){
+  emit('onlyOronNutagChanged', onlyOronNutag.value);
+}
 
 
-
-function loadSoums(name) {
+function loadSoums(name, feature) {
   d3.json('/election/map/soums/' + name + '.json').then((soumData) => {
     soumLayer.value = L.geoJSON(soumData, {
       onEachFeature: onEachSoum,
@@ -189,6 +192,8 @@ function loadSoums(name) {
     if (soumLayer.value && soumLayer.value.getBounds().isValid()) {
       map.value.fitBounds(soumLayer.value.getBounds()); // Zoom to the selected province
     }
+    emit('objectSelected', 'province', feature.properties, soumData.features);  // Emit event with section properties
+
 
     backButtonProvince.addTo(map.value);
   });
@@ -202,7 +207,7 @@ function onEachSoum(feature, layer) {
 
   layer.on('click', (e) => {
 
-    emit('objectSelected', 'soum', feature.properties);  // Emit event with section properties
+
 
   });
 }
@@ -217,7 +222,7 @@ function onEachProvince(feature, layer) {
     map.value.removeLayer(provinceLayer.value);
 
     selectedProvince.value = feature.properties.name_MN
-    loadSoums(feature.properties.name);
+    loadSoums(feature.properties.name, feature);
 
 
     // Close any open tooltips
@@ -226,13 +231,11 @@ function onEachProvince(feature, layer) {
         l.closeTooltip();
       }
     });
-    emit('objectSelected', 'province', feature.properties);  // Emit event with section properties
-
 
   });
 }
 
-function loadProvinces(section) {
+function loadProvinces(section, feature) {
   d3.json('/election/map/' + section + '.json').then((soumData) => {
     provinceLayer.value = L.geoJSON(soumData, {
       onEachFeature: onEachProvince,
@@ -243,6 +246,10 @@ function loadProvinces(section) {
 
 
     backButtonSection.addTo(map.value);
+
+    emit('objectSelected', 'section', feature.properties, soumData.features);  // Emit event with section properties
+
+
   });
 }
 
@@ -272,7 +279,7 @@ function onEachSection(feature, layer) {
     map.value.removeLayer(sectionLayer.value);
 
     selectedSection.value = feature.properties.section
-    loadProvinces(feature.properties.section);
+    loadProvinces(feature.properties.section, feature);
     if (layer && layer.getBounds().isValid()) {
       map.value.fitBounds(layer.getBounds()); // Zoom to the selected province
     }
@@ -284,8 +291,6 @@ function onEachSection(feature, layer) {
         l.closeTooltip();
       }
     });
-    emit('objectSelected', 'section', feature.properties);  // Emit event with section properties
-
 
   });
 }

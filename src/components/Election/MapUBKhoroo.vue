@@ -1,10 +1,5 @@
 <template>
   <div class="map row-span-5 relative">
-    <div class="absolute top-0.5 right-0.5 z-20">
-      <a-switch v-model:checked="onlyOronNutag" />
-
-      <span class="text-xxs"> Зөвхөн орон нутгийн мэдээлэл</span>
-    </div>
     <div class="flex justify-center flex-col items-center space-x-2  absolute bottom-0 left-1 z-20">
 
       <div>
@@ -257,6 +252,8 @@ function initMap() {
       onEachFeature: onEachSection,
       style: getStyle // Apply the style based on the feature properties
     }).addTo(map.value);
+
+    emit('objectSelected', 'section-ub', props.selectionFeature, features);  // Emit event with section properties
 
 
     map.value.fitBounds(sectionLayer.value.getBounds());

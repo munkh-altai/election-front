@@ -7,7 +7,7 @@
 
           <Map
           @objectSelected="objectSelected"
-
+@only-oron-nutag-changed="onlyOronNutagChanged"
           v-if="selectionType === 'country' || selectionType === 'section' || selectionType === 'province' || selectionType === 'soum'"
           :selectionType="selectionType" :selectionFeature="selectionFeature"
           />
@@ -20,7 +20,11 @@
 
           <SummaryBar :selectionType="selectionType" :selectionFeature="selectionFeature"/>
           <div class="bottom-part overflow-hidden">
-            <BottomBar :selectionType="selectionType" :selectionFeature="selectionFeature"></BottomBar>
+            <BottomBar :selectionType="selectionType"
+                       :selectionFeature="selectionFeature"
+                       :selectionFeatures="selectionFeatures"
+
+            ></BottomBar>
           </div>
         </div>
       </div>
@@ -31,7 +35,12 @@
           ></MapUB>
         </div>
         <div :style="`height: ${onlyOronNutag || selectionType !== 'country' ? 100 : 50}%; width: 100%`" class="border-t-2">
-          <SideBar :onlyOronNutag="onlyOronNutag || selectionType !== 'country'"></SideBar>
+          <SideBar
+            :onlyOronNutag="onlyOronNutag || selectionType !== 'country'"
+            :selectionType="selectionType"
+            :selectionFeatures="selectionFeatures"
+            :selectionFeature="selectionFeature"
+          ></SideBar>
         </div>
       </div>
     </div>
@@ -48,8 +57,10 @@ definePageMeta({
 })
 const selectionType = ref("country");
 const selectionFeature = ref(null);
+const selectionFeatures = ref([]);
 import TopMenu from "~/components/Election/TopMenu.vue"
 
+const onlyOronNutag = ref(false);
 import SummaryBar from "~/components/Election/SummaryBar"
 import SideBar from "~/components/Election/SideBar.vue"
 import BottomBar from "~/components/Election/BottomBar.vue"
@@ -57,10 +68,13 @@ import MapUB from "~/components/Election/MapUB.vue"
 import Map from "~/components/Election/Map.vue"
 import MapUBKhoroo from "~/components/Election/MapUBKhoroo.vue";
 
-function objectSelected(sType, feature){
-  console.log(sType)
-  console.log(feature)
+function onlyOronNutagChanged(v){
+  onlyOronNutag.value = v
+}
+function objectSelected(sType, feature, features){
+
   selectionType.value = sType
   selectionFeature.value = feature
+  selectionFeatures.value = features
 }
 </script>
