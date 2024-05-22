@@ -22,6 +22,8 @@
 <script setup>
 
 // Dummy data generation and sorting logic
+import {defineProps, onMounted, ref, watchEffect} from "vue";
+
 function generateRandomData(workSectors) {
   const data = [];
 
@@ -58,7 +60,47 @@ function generateRandomData(workSectors) {
   return data;
 }
 
+function generateRandomDataOther(workSectors) {
+  const data = [];
 
+  for (let i = 0; i < workSectors.length; i++) {
+    let baseValue = 5000; // Minimum base value for all sectors
+    if (workSectors[i] === "401 - 500" || workSectors[i] === "501 - 600") {
+      baseValue = 40000; // Higher base value for key sectors
+    }
+
+    const cnt_base_red = Math.floor(Math.random() * 10000) + baseValue;
+    const cnt_base_blue = Math.floor(Math.random() * (cnt_base_red - 5000)) + 1000;  // Random number between 10,000 and cnt_base_red - 10,000
+    const cnt_base_busad = Math.floor(Math.random() * (cnt_base_blue - 20000)) + 1000;  // Random number between 10,000 and cnt_base_blue - 10,000
+    const cnt_base_saaral = Math.floor(Math.random() * (cnt_base_busad - 15000)) + 500;  // Random number between 5,000 and cnt_base_busad - 5,000
+
+    const manMembers = Math.floor(Math.random() * 8000);  // Random number between 0 and 80,000
+    const cnt_sc_red = Math.floor(Math.random() * 3000);  // Random number between 0 and 30,000
+    const cnt_sc_blue = Math.floor(Math.random() * 1000);  // Random number between 0 and 10,000
+    const cnt_sc_busad = Math.floor(Math.random() * 1500);  // Random number between 0 and 15,000
+
+    data.push({
+      id: i + 1,
+      sector: workSectors[i],
+      cnt_base_red,
+      cnt_base_blue,
+      cnt_base_busad,
+      cnt_base_saaral,
+      manMembers,
+      cnt_sc_red,
+      cnt_sc_blue,
+      cnt_sc_busad
+    });
+
+  }
+  return data;
+}
+
+const props = defineProps({
+  selectionType: String,
+  selectionFeature: Object,
+  selectionFeatures: Array,
+});
 
 const workSectors = [
   "100 хүртэл малтай",
@@ -74,11 +116,8 @@ const workSectors = [
   "1000 дээш малтай",
 ];
 
-const generatedData = generateRandomData(workSectors);
-const sortedData = [...generatedData].sort((a, b) => b.cnt_base_red - a.cnt_base_red);
-const total = computed(() => {
-  return sortedData.reduce((sum, item) => sum + item.cnt_base_red, 0);
-});
+
+
 
 const calculateWidth = (value) => {
   return (value / total.value * 100).toFixed(2);
@@ -88,6 +127,32 @@ const calculatePercentage = (value) => {
   return ((value / total.value) * 100).toFixed(2);
 };
 
+const generatedData = ref([]);
+const sortedData = ref([]);
+
+const total = computed(() => {
+  return sortedData.value.reduce((sum, item) => sum + item.cnt_base_red, 0);
+});
+
+function init(){
+  if(props.selectionType === 'country'){
+    generatedData.value = generateRandomData(workSectors);
+  } else {
+    generatedData.value = generateRandomDataOther(workSectors);
+  }
+
+
+  sortedData.value = [...generatedData.value].sort((a, b) => b.cnt_base_red - a.cnt_base_red);
+
+}
+
+watchEffect(() => {
+  init();
+});
+
+onMounted(()=>{
+  init()
+})
 </script>
 
 <style scoped>

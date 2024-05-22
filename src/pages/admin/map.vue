@@ -20,7 +20,8 @@
 
           <SummaryBar :selectionType="selectionType" :selectionFeature="selectionFeature"/>
           <div class="bottom-part overflow-hidden">
-            <BottomBar :selectionType="selectionType"
+            <BottomBar
+              :selectionType="selectionType"
                        :selectionFeature="selectionFeature"
                        :selectionFeatures="selectionFeatures"
 

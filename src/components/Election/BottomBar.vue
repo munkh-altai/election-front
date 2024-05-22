@@ -4,9 +4,24 @@
       <a-tabs v-model:activeKey="activeKey"  size="small">
         <a-tab-pane key="1" tab="Дэмжигчид" class="">
           <div class="grid grid-cols-3 gap-2 tab-content">
-            <CategoryChart></CategoryChart>
-            <CategoryChartMalchin></CategoryChartMalchin>
-            <CategoryChartYastan></CategoryChartYastan>
+
+            <CategoryChart
+
+              :selectionType="selectionType"
+              :selectionFeature="selectionFeature"
+              :selectionFeatures="selectionFeatures"
+
+            ></CategoryChart>
+            <CategoryChartMalchin
+              :selectionType="selectionType"
+              :selectionFeature="selectionFeature"
+              :selectionFeatures="selectionFeatures"
+            ></CategoryChartMalchin>
+            <CategoryChartYastan
+              :selectionType="selectionType"
+              :selectionFeature="selectionFeature"
+              :selectionFeatures="selectionFeatures"
+            ></CategoryChartYastan>
           </div>
         </a-tab-pane>
         <a-tab-pane key="2" tab="Намын жагсаалт" class="">
