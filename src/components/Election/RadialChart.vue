@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref, defineProps } from 'vue';
+import { ref, watch, defineProps } from 'vue';
 import VueApexCharts from 'vue3-apexcharts';
 
 export default {
@@ -17,14 +17,15 @@ export default {
   components: {
     apexchart: VueApexCharts,
   },
-  props:{
-    color: String
+  props: {
+    color: String,
+    percent: Number,
   },
   setup(props) {
-    const series = ref([67]);
+    const series = ref([props.percent]);
     const chartHeight = ref(30); // Fixed height
     const chartWidth = ref(70); // Fixed width (more than height for rectangular shape)
-    const fontSize = ref('12px')
+    const fontSize = ref('12px');
     const chartOptions = ref({
       chart: {
         height: chartHeight.value,
@@ -52,13 +53,18 @@ export default {
               fontSize: fontSize.value, // Fixed font size
               show: true,
               offsetY: 4,
-              color: props.color, // Set the text color to red
+              color: props.color, // Set the text color
             },
           },
         },
       },
-      colors: [props.color], // Set the radial bar color to red
+      colors: [props.color], // Set the radial bar color
       labels: [], // No labels needed
+    });
+
+    // Watch for changes to the percent prop and update the series
+    watch(() => props.percent, (newVal) => {
+      series.value = [newVal];
     });
 
     return {
